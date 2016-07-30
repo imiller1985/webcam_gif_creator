@@ -8,8 +8,8 @@ A Ruby script to capture images from National Park webcams, can be converted to 
 2. Navigate to the new directory using: `$ cd webcam_gif_creator`
 3. Two gems are required: open-uri and rmagick. Rmagick is an interface between Ruby and the ImageMagick processing library and will require installing ImageMagick on your machine. More information on the gem can be found on the rmagick [Github Page](https://github.com/rmagick/rmagick) while download instructions can be found at the [Image Magick Homepage](http://www.imagemagick.org/script/index.php)
 4. Once installed the script can be run via the command `$ ruby webcam.rb`
-5. The script is currently setup to run on Hurrican Ridge Webcam in Olympic National Park. However that can be changed by changing the variable `image_url = "http://www.nps.gov/webcams-olym/current_ridgecam.jpg"` to another compatable url with a static url. In some cases a url will contain a timestamp but will still return the current image with the timestamp removed.
-6. The script runs in two parts. The initial step includes downloading all images over a set period of time, this can be down using the variables `hours_of_runtime` and `sleep_period`. Sleep period is in seconds, with it currently set at 10 minutes. 
+5. The script is currently setup to run on Hurrican Ridge Webcam in Olympic National Park. However that can be changed by changing the variable `image_url = "http://www.nps.gov/webcams-olym/current_ridgecam.jpg"` to another static url that displays a jpg image. In some cases a url will contain a timestamp but will still return the current image with the timestamp removed.
+6. The script runs in two parts. The initial step includes downloading all images over a set period of time, this can be done using the variables `hours_of_runtime` and `sleep_period`. Sleep period is in seconds, and is currently set at 10 minutes. 
 ```
 start_time = Time.now.to_i
 hours_of_runtime = 5
@@ -47,5 +47,5 @@ def images_to_gif(directory_name, gif_name)
   sequence.write("#{gif_name}_timelapse.gif")
 end
 ``` 
-Of primary concern is the line `sequence.cur_image.delay = 10`. This sets the delay between changing images in the gif, the lower the number the less the delay. Once the gif has been created the original set of images is retained. This was done so that after a batch of images have been created the delay can be changed if not to a desired length and a new gif created. To do this simple comment out the method `image_downloader`and rerun the script.
+Of primary concern is the line `sequence.cur_image.delay = 10`. This sets the delay between changing images in the gif, the lower the number the less the delay. Once the gif has been created the original set of images is retained. This was done so that after a batch of images have been created the delay can be changed to a desired length and a new gif created. To do this simple comment out the method `image_downloader`and rerun the script.
 Enjoy!
