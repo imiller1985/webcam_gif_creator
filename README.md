@@ -10,7 +10,7 @@ A Ruby script to capture images from National Park webcams, can be converted to 
 4. Once installed the script can be run via the command `$ ruby webcam.rb`
 5. The script is currently setup to run on Hurrican Ridge Webcam in Olympic National Park. However that can be changed by changing the variable `image_url = "http://www.nps.gov/webcams-olym/current_ridgecam.jpg"` to another static url that displays a jpg image. In some cases a url will contain a timestamp but will still return the current image with the timestamp removed.
 6. The script runs in two parts. The initial step includes downloading all images over a set period of time, this can be done using the variables `hours_of_runtime` and `sleep_period`. Sleep period is in seconds, and is currently set at 10 minutes. 
-```
+```ruby
 start_time = Time.now.to_i
 hours_of_runtime = 5
 run_time = 3600 * hours_of_runtime
@@ -18,7 +18,7 @@ finish_time = start_time + run_time
 sleep_period = 600
 ```
 Once the variables are set the method `image_downloader` will download all images into a new folder labeled `images`. A few pieces of the method are worth noting, primarily that the images will be saved with a timestamp of the current time and in the `.jpg` format. Additionally a failsafe has been built in so that if a connection can't be established the script will sleep for 5 seconds before trying again, which prevents the script from failing mid process. 
-```
+```ruby
 def image_downloader(finish_time, directory_name, image_url, sleep_period)
   until Time.now.to_i >= finish_time
     begin
@@ -34,7 +34,7 @@ def image_downloader(finish_time, directory_name, image_url, sleep_period)
 end
 ``` 
 Once all images have been downloaded the script will convert the images to an animated gif and save it in the home directory using the method below:
-```
+```ruby
 def images_to_gif(directory_name, gif_name)
   puts "converting to gif"
   sequence = Magick::ImageList.new
