@@ -2,7 +2,6 @@
 A Ruby script to capture images from National Park webcams, can be converted to run on other webcams with static url's.
 
 [Sample output](http://i.imgur.com/qLB4W05.gifv)
-![alt tag](http://i.imgur.com/qLB4W05.gifv "Description goes here")
 
 ## Implemntation 
 1. To run the gif creator make sure you have Ruby installed and clone the repo to your desired directory using the command: `$ git clone https://github.com/imiller1985/webcam_gif_creator`
