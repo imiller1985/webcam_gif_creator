@@ -1,5 +1,5 @@
 # Webcam Gif Creator
-A Ruby script to capture images from National Park webcams, can be converted to run on other webcams with static url's.
+A Ruby script to capture images from National Park webcams and turn them into timelapse gifs, can be converted to run on other webcams with static url's.
 
 [Sample output](http://i.imgur.com/qLB4W05.gifv)
 
